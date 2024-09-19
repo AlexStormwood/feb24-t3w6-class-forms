@@ -55,6 +55,12 @@ export default class EditablePost extends React.Component {
 					value={this.state.content} 
 					onChange={this.handleContentChange}
 				/>
+
+				<button onClick={() => {
+					this.props.updateData(this.state.author, this.state.location, this.state.content);
+				}}>
+					Submit Data
+				</button>
 			</div>
 		)
 	}

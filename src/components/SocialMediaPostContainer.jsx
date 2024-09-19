@@ -16,6 +16,15 @@ export default class SocialMediaPostContainer extends React.Component {
 		}
 	}
 
+	updatePostData = (newAuthor, newLocation, newContent) => {
+		this.setState({
+			author: newAuthor,
+			lastUpdated: Date.now(),
+			location: newLocation,
+			content: newContent
+		});
+	}
+
 	toggleEditMode = () => {
 		this.setState({isEditing: !this.state.isEditing});
 	}
@@ -38,6 +47,7 @@ export default class SocialMediaPostContainer extends React.Component {
 						lastUpdated={this.state.lastUpdated} 
 						location={this.state.location}
 						content={this.state.content}
+						updateData={this.updatePostData}
 
 						parentState={this.state}
 					/>
