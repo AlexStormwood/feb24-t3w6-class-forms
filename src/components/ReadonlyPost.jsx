@@ -4,7 +4,7 @@ export default function ReadonlyPost(props){
 		<div className="socialMediaReadonlyPost">
 			<h1>{props.author}</h1>
 			<h6>Created on {props.dateCreated}</h6>
-			{props.lastUpdated != props.dateCreated ? 
+			{props.lastUpdated !== props.dateCreated ? 
 			<h6>Last edited on {props.lastUpdated}</h6>
 			:
 			null

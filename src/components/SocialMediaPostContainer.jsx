@@ -1,5 +1,6 @@
 import React from "react";
 import ReadonlyPost from "./ReadonlyPost";
+import EditablePost from "./EditablePost";
 
 export default class SocialMediaPostContainer extends React.Component {
 	constructor(){
@@ -15,34 +16,51 @@ export default class SocialMediaPostContainer extends React.Component {
 		}
 	}
 
+	toggleEditMode = () => {
+		this.setState({isEditing: !this.state.isEditing});
+	}
+
 	render(){
 
 		// this.props.author 
 		// this.props.parentState.author 
+		
 
 		if (this.state.isEditing){
 			return(
-				<EditablePost 
-					author={this.state.author} 
-					dateCreated={this.state.dateCreated} 
-					lastUpdated={this.state.lastUpdated} 
-					location={this.state.location}
-					content={this.state.content}
+				<>
+					<button onClick={this.toggleEditMode}>
+						Toggle Edit Mode
+					</button>
+					<EditablePost
+						author={this.state.author} 
+						dateCreated={this.state.dateCreated} 
+						lastUpdated={this.state.lastUpdated} 
+						location={this.state.location}
+						content={this.state.content}
 
-					parentState={this.state}
-				/>
+						parentState={this.state}
+					/>
+				</>
+				
 			);
 		} else {
 			return(
-				<ReadonlyPost 
-					author={this.state.author} 
-					dateCreated={this.state.dateCreated} 
-					lastUpdated={this.state.lastUpdated} 
-					location={this.state.location}
-					content={this.state.content}
+				<>
+					<button onClick={this.toggleEditMode}>
+						Toggle Edit Mode
+					</button>
+					<ReadonlyPost 
+						author={this.state.author} 
+						dateCreated={this.state.dateCreated} 
+						lastUpdated={this.state.lastUpdated} 
+						location={this.state.location}
+						content={this.state.content}
 
-					parentState={this.state}
-				/>
+						parentState={this.state}
+					/>
+				</>
+				
 			);
 		}
 	}
